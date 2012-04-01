@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 '''
 Plot CPU utilization of each virtual host.
 '''

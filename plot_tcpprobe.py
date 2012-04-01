@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from helper import *
 from collections import defaultdict
 import argparse

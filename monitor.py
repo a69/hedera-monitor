@@ -44,7 +44,7 @@ def monitor_count(ipt_args="--src 10.0.0.0/8", interval_sec=0.01, fname='%s/byte
         sleep(interval_sec)
     return
 
-def monitor_devs(dev_pattern='^sw', fname="%s/bytes_sent.txt" % default_dir, interval_sec=0.01):
+def monitor_devs(dev_pattern='^s', fname="%s/bytes_sent.txt" % default_dir, interval_sec=0.01):
     """Aggregates (sums) all txed bytes and rate (in Mbps) from devices whose name
     matches @dev_pattern and writes to @fname"""
     pat = re.compile(dev_pattern)
@@ -68,7 +68,7 @@ def monitor_devs(dev_pattern='^sw', fname="%s/bytes_sent.txt" % default_dir, int
 
 def monitor_devs_ng(fname="%s/txrate.txt" % default_dir, interval_sec=0.01):
     """Uses bwm-ng tool to collect iface tx rate stats.  Very reliable."""
-    cmd = "sleep 1; bwm-ng -t %s -o csv -u bits -T rate -C ',' > %s" % (interval_sec * 1000, fname)
+    cmd = "sleep 1; bwm-ng -t %s -o csv -u bits -T rate -C , -F %s" % (interval_sec * 1000, fname)
     Popen(cmd, shell=True).wait()
 
 def monitor_cpu(fname="%s/cpu.txt" % default_dir, container=None):

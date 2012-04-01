@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 '''
 Plot queue occupancy over time
 '''
