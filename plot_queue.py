@@ -61,6 +61,8 @@ parser.add_argument('--labels',
 args = parser.parse_args()
 if args.labels is None:
     args.labels = args.files
+if args.legend is None:
+    args.legend = args.files
 
 to_plot=[]
 def get_style(i):
